@@ -178,20 +178,31 @@ The dashboard should be deployed to [shinyapps.io](https://www.shinyapps.io/admi
 
 We don't expect you to be a great UI designer. However, your dashboard page should be tidy and clean enough to watch. Some considerations to help you create a tidy page including:
 
-  + 
-  + 
-  + Page should be filled thoroughly with content without leaving any blank spaces in a full-width length of a page.
+1. Each tab/page should not too long and has distinct topics
+2. Be consistent, e.g. all texts are in English and consistent color themes
+3. Page should be filled thoroughly with content without leaving any blank spaces in a full-width length of a page.
+
+<center>*Less Tidy Page*</center>
+
+```{r echo=FALSE}
+knitr::include_graphics("assets/less_tidy.png")
+```
+
+<center>*Tidy Page*</center>
+
+```{r echo=FALSE}
+knitr::include_graphics("assets/tidy_page.png")
+```
 
 - **(2 points) Have tidy plot layout**
 
 Some considerations to help you create a tidy plot including:
 
-  + Have clear plot title and axis title
-  + Text is readable and contrast with the background (if background is in dark color, the text should be in light color, and vice versa)
-  + Numeric axis text should be formatted such that every 3 digit is separated by comma (20,000 instead of 20000)
-  + No redundant information. For example, if category is already presented as y axis you don't need to fill/color the data based on the category
-  + Ranking is presented with clear order (ascending or descending), for example when you present top 10 product name or top 10 customer
-  + No overlapping axis text, long text should not be rotated with 90% degree rotation. Some [tips](https://datavizpyr.com/how-to-dodge-overlapping-text-on-x-axis-labels-in-ggplot2/)
+1. Have clear plot title and axis title
+2. Text is readable and contrast with the background (if background is in dark color, the text should be in light color, and vice versa)
+3. Numeric axis text should be formatted such that every 3 digit is separated by comma (20,000 instead of 20000)
+4. Ranking is presented with clear order (ascending or descending), for example when you present top 10 product name or top 10 customer
+5. No overlapping axis text, long text should not be rotated with 90% degree rotation. Some [tips](https://datavizpyr.com/how-to-dodge-overlapping-text-on-x-axis-labels-in-ggplot2/)
   
 ```{r echo=FALSE}
 knitr::include_graphics("assets/tidy_plot.png")
@@ -202,7 +213,7 @@ knitr::include_graphics("assets/tidy_plot.png")
 
 The plot should have a customized tooltip that has a clear and easy to read popup text.
 
-**Bad Tooltip**
+*Bad Tooltip*
 
 Bad tooltip typically use the original column name that sometimes are hard to read. The number is still in raw value, for example the GDP per Capita for Gabon is **13206.4845**. The number will be easier to read if presented as **13,206.4845** with comma separator for every 3 digits.
 
@@ -211,7 +222,7 @@ gdpPercap: 13206.4845
 lifeExp: 56.735
 ```
 
-**Good Tooltip**
+*Good Tooltip*
 
 ```
 Gabon (name of the country)
@@ -246,6 +257,9 @@ You are expected to submit the link from your deployed shiny to the google class
 knitr::include_graphics("assets/submission.png")
 ```
 
+_NOTES_
+
+If you use confidential data, you still need to deploy your dashboard and take a screenshot of your deployed dashboard. After that, you can take down the deployed dashboard on shinyapps.io and submit your capstone project in zip.
 
 # Reference
 
