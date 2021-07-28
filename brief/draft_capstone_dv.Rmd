@@ -202,7 +202,8 @@ Some considerations to help you create a tidy plot including:
 2. Text is readable and contrast with the background (if background is in dark color, the text should be in light color, and vice versa)
 3. Numeric axis text should be formatted such that every 3 digit is separated by comma (20,000 instead of 20000)
 4. Ranking is presented with clear order (ascending or descending), for example when you present top 10 product name or top 10 customer
-5. No overlapping axis text, long text should not be rotated with 90% degree rotation. Some [tips](https://datavizpyr.com/how-to-dodge-overlapping-text-on-x-axis-labels-in-ggplot2/)
+5. Have consistent themes for all plots
+6. No overlapping axis text, long text should not be rotated with 90% degree rotation. Some [tips](https://datavizpyr.com/how-to-dodge-overlapping-text-on-x-axis-labels-in-ggplot2/)
   
 ```{r echo=FALSE}
 knitr::include_graphics("assets/tidy_plot.png")
