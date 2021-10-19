@@ -1,5 +1,5 @@
 ---
-title: "Capstone DV"
+title: "Data Visualization Capstone Project"
 date: "Updated: October 19, 2021"
 output: 
   html_document:
