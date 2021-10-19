@@ -1,6 +1,6 @@
 ---
 title: "Capstone DV"
-date: "Updated: June 29, 2021"
+date: "Updated: October 19, 2021"
 output: 
   html_document:
     toc: true
@@ -23,20 +23,12 @@ output:
 
 Algoritma is a data science education center based in Jakarta. We organize workshops and training programs to help working professionals and students gain mastery in various data science sub-fields: data visualization, machine learning, data modeling, statistical inference etc. Visit our website for all upcoming workshops.
 
-# Libraries and Setup
-
-We’ll set-up caching for this notebook given how computationally expensive some of the code we will write can get.
-
-```{r setup}
+```{r setup, include = F, message=FALSE}
 options(width=50)
-knitr::opts_chunk$set(cache = F,tidy=TRUE)
+knitr::opts_chunk$set(cache = F,tidy=TRUE, fig.align = "center")
 options(scipen = 9999)
 rm(list=ls())
-```
 
-You will need to use `install.packages()` to install any packages that are not already downloaded onto your machine. You then load the package into your workspace using the `library()` function:
-
-```{r results='hide', message=FALSE}
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -96,38 +88,174 @@ In addition, students are given the freedom to use their own dataset or past dat
 
 ### Input (reactivity)
 
-- (2 points) Using min. 2 different input type 
-- (2 points) Choosing appropriate input type 
-- (2 points) Demonstrating useful input(s) 
+- **(2 points) Using min. 2 different input type **
+
+The dashboard should contain at least 2 different input types. For example, there is a slider input and select input on the dashboard. If the dashboard only has 2 select inputs or 2 similar inputs, it will be counted as one.
+
+```{r echo=FALSE, out.width = "60%"}
+knitr::include_graphics("assets/input_multi.png")
+```
+
+- **(2 points) Choosing appropriate input type**
+
+All input should have an appropriate user interface.  For example, a date should not use a select input but instead use the proper date input or date range input.
+
+```{r echo=FALSE, out.width = "70%"}
+knitr::include_graphics("assets/wrong_input.png")
+```
+
+
+- **(2 points) Demonstrating useful input(s)**
+
+The dashboard should have input widgets that would give the user the ability to explore the data. Some useful input including filtering data with slider input or selecting different categories with select input. Less useful input including changing the color of the plot.
+
   
 ### Tab (paging)
 
-- (3 points) Using min. 3 page 
-  
+- **(3 points) Using min. 3 page**
+
+The dashboard should contain at least 3 different tabs/page that convey different information. 
+
+```{r echo=FALSE, out.width="40%"}
+knitr::include_graphics("assets/tab.png")
+```
+
 ### Render plot 
 
-- (1 points) Using interactive plot
-- (2 points) Using min. 2 plot type
-- (2 points) Choosing the appropriate plot type 
-- (2 points) Demonstrating reactivity from the input
-- (2 points) Creating plots that tell a clear story 
+- **(1 points) Using interactive plot**
+
+All plots should be presented as interactive plots. You can either use [plotly](https://plotly.com/r/), [highcharter](https://jkunst.com/highcharter/), [echarts4r](https://echarts4r.john-coene.com/), or other interactive plot packages in R.
+
+- **(2 points) Using min. 2 plot type**
+
+The dashboard should contain at least 2 different plot types. We expect you can explore different visualizations to convey different information. For example, a dashboard contains 2 different plots: a bar chart and a line plot. The number of plots itself is not limited.
+
+- **(2 points) Choosing the appropriate plot type** 
+
+All information should be presented with appropriate plots. For example, if you want to show categorical ranking, you can use bar chart or lollipop chart. You can refer to [data-to-viz](https://www.data-to-viz.com/) for guidance.
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("assets/datatoviz.png")
+```
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("assets/wrong_plot.png")
+```
+
+- **(2 points) Demonstrating reactivity from the input**
+
+The plot should be able to react to the change given by input. 
+
+```{r echo=FALSE}
+knitr::include_graphics("assets/app_simple_view.gif")
+```
+
+- **(2 points) Creating plots that tell a clear story **
+
+All plots should have clear information and are easy to understand. There should be at least a plot title and clear axis title. You can refer to [this notes](https://clauswilke.com/dataviz/introduction.html#ugly-bad-and-wrong-figures) regarding this problem.
   
+```{r echo=FALSE}
+knitr::include_graphics("assets/ugly-bad-wrong-examples-1.png")
+```
+
 ### Deploy 
 
-- (6 points) Successfully deploying to shinyapps.io 
+- **(6 points) Successfully deploying to shinyapps.io**
+
+The dashboard should be deployed to [shinyapps.io](https://www.shinyapps.io/admin/#/dashboard) and contain no error after being deployed.
 
 ### User Interface Appearence
 
-- (2 points) Have tidy page layout
-- (2 points) Have tidy plot layout
-- (1 points) Have appropriate plot tooltip
-- (1 points) Choosing right color scheme 
+- **(2 points) Have tidy page layout**
+
+We don't expect you to be a great UI designer. However, your dashboard page should be tidy and clean enough to watch. Some considerations to help you create a tidy page including:
+
+1. Each tab/page should not too long and has distinct topics
+2. Be consistent, e.g. all texts are in English and consistent color themes
+3. Page should be filled thoroughly with content without leaving any blank spaces in a full-width length of a page.
+
+<center>*Less Tidy Page*</center>
+
+```{r echo=FALSE}
+knitr::include_graphics("assets/less_tidy.png")
+```
+
+<center>*Tidy Page*</center>
+
+```{r echo=FALSE}
+knitr::include_graphics("assets/tidy_page.png")
+```
+
+- **(2 points) Have tidy plot layout**
+
+Some considerations to help you create a tidy plot including:
+
+1. Have clear plot title and axis title
+2. Text is readable and contrast with the background (if background is in dark color, the text should be in light color, and vice versa)
+3. Numeric axis text should be formatted such that every 3 digit is separated by comma (20,000 instead of 20000)
+4. Ranking is presented with clear order (ascending or descending), for example when you present top 10 product name or top 10 customer
+5. Have consistent themes for all plots
+6. No overlapping axis text, long text should not be rotated with 90% degree rotation. Some [tips](https://datavizpyr.com/how-to-dodge-overlapping-text-on-x-axis-labels-in-ggplot2/)
+  
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("assets/tidy_plot.png")
+```
+  
+
+- **(1 points) Have appropriate plot tooltip**
+
+The plot should have a customized tooltip that has a clear and easy to read popup text.
+
+*Bad Tooltip*
+
+Bad tooltip typically use the original column name that sometimes are hard to read. The number is still in raw value, for example the GDP per Capita for Gabon is **13206.4845**. The number will be easier to read if presented as **13,206.4845** with comma separator for every 3 digits.
+
+```
+gdpPercap: 13206.4845
+lifeExp: 56.735
+```
+
+*Good Tooltip*
+
+```
+Gabon (name of the country)
+GDP per Capita: 13,206.48
+Life Expectancy: 56.735
+``` 
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/tooltip.png")
+```
+
+- **(1 points) Choosing right color scheme**
+
+Color must be carefully chosen to serve a purpose and it must be clear and do not distract the reader. One of the most common pitfalls is using color for bar charts when a large number of categories are present. You can read more about issues of color usage in [this book’s chapter](https://clauswilke.com/dataviz/color-pitfalls.html).
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/bad_color.png")
+```
+
+### Total Score
 
 If you achieved all those criteria you will get total 30 points. 
 
-![Data Visualization Track Rubics](assets/DV Rubrics Kappa-01.png)
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("assets/DV Rubrics Kappa-01.png")
+```
 
-## Reference
+# Submission
+
+You are expected to submit the link from your deployed shiny to the google classroom via private comment. We will evaluate your dashboard and give feedback based on the submitted link.
+
+```{r echo=FALSE, out.width="90%"}
+knitr::include_graphics("assets/submission.png")
+```
+
+_NOTES_
+
+If you use confidential data, you still need to deploy your dashboard and take a screenshot of your deployed dashboard. After that, you can take down the deployed dashboard on shinyapps.io and submit your capstone project in zip.
+
+# Reference
 
 - Shiny Dashboard
 https://rstudio.github.io/shinydashboard/
@@ -152,12 +280,25 @@ https://github.com/tiaradwiputri/workforce
 - Ecological Footprint - Nabiilah:
 https://github.com/NabiilahArdini/Eco-Status
 
-## Data Source
+Student's Work:
+
+- [Video Game Sales - Fadhlan Rahim](https://fadhlanrahim.shinyapps.io/VideoGamesSalesAnalytics/)
+
+- [COVID19 Dashboard - Stane Aurelius](https://staneaurelius.shinyapps.io/covid_dashboard/)
+
+- [Cost of Happiness - Simon Pieter](https://simonpieterhs.shinyapps.io/Cost_of_Happiness/)
+
+- [Fleet Management - Kiki Sardi](https://kikiqs.shinyapps.io/Fleet-Management/)
+
+- [Sales Dashboard - Rudi Haryanto](https://rudiharyanto.shinyapps.io/Superstore-Sales/)
+
+# Data Source
 
 Some data source reference:
 
 - Kaggle http://kaggle.com
 - TidyTuesday https://github.com/rfordatascience/tidytuesday
+- data.world https://data.world/
 - UCI Machine Learning Repository http://archive.ics.uci.edu/ml/index.php is a dataset specifically pre-processed for machine learning.
 - Data.gov http://data.gov The US Government pledged last year to make all government data available freely online.
 - US Census Bureau http://www.census.gov/data.html A wealth of information on the lives of US citizens covering population data, geographic data and education.
@@ -167,8 +308,8 @@ Some data source reference:
 - Jakarta open data http://data.jakarta.go.id/
 - Badan Pusat Statistik : https://www.bps.go.id/
 
+# Tips
 
-## Tips
 - Set your size.
 By default, Shiny limits file uploads to 5MB per file. You can modify this limit by using the shiny.maxRequestSize option. For example, adding this to the top of app.R would increase the limit to 200MB.
 
